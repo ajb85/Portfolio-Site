@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: @brown;
 
   // The DIVS on each side of the screen that make up the two doors
   .left,
@@ -38,6 +39,11 @@
     h2 {
       margin: 0;
       text-align: center;
+      // Don't allow text to be selected
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -khtml-user-select: none;
     }
     // Resize/position text based on screen size
     p {
