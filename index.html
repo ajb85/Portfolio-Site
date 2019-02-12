@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <title>AJ Brush - Full Stack Developer</title>
+    <!--
+      Initially created in my codepen: https://codepen.io/ajb85/pen/damXBE?editors=1111
+    -->
   </head>
-  <body></body>
+  <body>
+    <div class="container zipper">
+      <!-- "Real" teeth are mostly for content and stick out of the door -->
+      <!--
+        "Fake" teeth create borders for the indention on the opposite door
+      -->
+
+      <!-- Left "Door" -->
+      <div class="left">
+        <!--
+          A set of teeth sit on top and bottom to create the illusion of the pattern continuing
+        -->
+        <div class="tooth fake"></div>
+        <div class="tooth real">
+          <h2>About</h2>
+          <h2 class="icon">A</h2>
+          <p>Who I am and what I like to do!</p>
+        </div>
+        <div class="tooth fake"></div>
+        <div class="tooth real">
+          <h2>Projects</h2>
+          <h2 class="icon">P</h2>
+          <p>Demos of my work along with GitHub links.</p>
+        </div>
+        <div class="tooth fake"></div>
+        <div class="tooth real"></div>
+      </div>
+
+      <div class="right">
+        <div class="tooth real"></div>
+        <div class="tooth fake"></div>
+        <div class="tooth real">
+          <h2>Skills</h2>
+          <h2 class="icon">S</h2>
+          <p>A list of my skills and the technologies I've learned.</p>
+        </div>
+
+        <div class="tooth fake"></div>
+        <div class="tooth real">
+          <h2>Social</h2>
+          <h2 class="icon">S</h2>
+          <p>How to reach me on LinkedIn, GitHub, etc</p>
+        </div>
+        <div class="tooth fake"></div>
+      </div>
+    </div>
+  </body>
 </html>
