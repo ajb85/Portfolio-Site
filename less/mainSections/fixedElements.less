@@ -1,0 +1,62 @@
+.ctaContainer {
+  position: absolute;
+  margin: auto;
+  max-width: @maxW;
+  top: 0;
+  width: 120px;
+  height: 60px;
+  z-index: 2;
+
+  .cta {
+    position: relative;
+    @btnWidth: 100px;
+    @btnHeight: 40px;
+    width: @btnWidth;
+    height: @btnHeight;
+    background-color: @red;
+    border: 2px solid @white;
+    color: @white;
+    left: 5px;
+    top: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+
+    // &:hover {
+    //   background-color: darken(@red, 10%);
+    // }
+
+    .flexAlign;
+    flex-direction: column;
+  }
+}
+
+div.homeContainer {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: @maxW;
+  z-index: 2;
+  .flexAlign(flex-end);
+
+  button.homeBtn {
+    background-color: @white;
+    border-color: @red;
+    color: @red;
+    margin-right: 2%;
+    font-size: 2rem;
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+    &.animate {
+      visibility: visible;
+      opacity: 100;
+
+      i {
+      }
+    } // .animate
+  } // .homeBtn
+} // .homeContainer
