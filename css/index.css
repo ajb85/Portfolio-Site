@@ -197,11 +197,17 @@ button:focus {
   height: 100vh;
   min-height: 300px;
   max-height: 1000px;
-  width: 20vh;
+  width: calc(50% - (20vh / 2));
   transition: 0s;
   position: relative;
   z-index: 1;
   background-color: #cfb3a5;
+}
+@media (max-height: 300px) {
+  .zipper .left,
+  .zipper .right {
+    width: calc(50% - 30px);
+  }
 }
 .zipper .left .tooth,
 .zipper .right .tooth {
@@ -215,12 +221,6 @@ button:focus {
   position: relative;
   bottom: 10vh;
   background-color: #cfb3a5;
-}
-@media (max-height: 420px) {
-  .zipper .left .tooth,
-  .zipper .right .tooth {
-    align-items: center;
-  }
 }
 @media (max-height: 300px) {
   .zipper .left .tooth,
@@ -319,13 +319,12 @@ button:focus {
 }
 .zipper .left {
   right: 0px;
-  width: calc(50% - (20vh / 2));
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 .zipper .left.animate {
-  right: 50%;
+  right: 55%;
 }
 .zipper .left .tooth.real {
   left: 20vh;
@@ -335,7 +334,7 @@ button:focus {
 }
 @media (max-height: 300px) {
   .zipper .left .tooth.real {
-    left: 30px;
+    left: 60px;
   }
 }
 .zipper .left .tooth.fake {
@@ -344,17 +343,11 @@ button:focus {
   border-style: solid;
   border-color: black;
 }
-@media (max-height: 300px) {
-  .zipper .left .tooth.fake {
-    right: 30px;
-  }
-}
 .zipper .right {
   left: 0;
-  width: calc(50% - (20vh / 2));
 }
 .zipper .right.animate {
-  left: 50%;
+  left: 55%;
 }
 .zipper .right .tooth.real {
   right: 20vh;
@@ -364,7 +357,7 @@ button:focus {
 }
 @media (max-height: 300px) {
   .zipper .right .tooth.real {
-    right: 30px;
+    right: 60px;
   }
 }
 .zipper .right .tooth.fake {
@@ -372,11 +365,6 @@ button:focus {
   border-width: 0px 0px 0px 1px;
   border-style: solid;
   border-color: black;
-}
-@media (max-height: 300px) {
-  .zipper .right .tooth.fake {
-    left: 30px;
-  }
 }
 .ctaContainer {
   position: absolute;

@@ -12,11 +12,15 @@
     height: 100vh;
     min-height: @minH;
     max-height: 1000px;
-    width: @size;
+    width: calc(50% - (@size / 2));
     transition: 0s;
     position: relative;
     z-index: 1;
     background-color: @bgColor;
+
+    @media @minMedia {
+      width: calc(50% - 30px);
+    }
 
     // General styles for each "tooth", real and fake
     .tooth {
@@ -30,9 +34,9 @@
       background-color: @bgColor;
 
       // Move icons to the center of the box
-      @media @icons {
-        align-items: center;
-      }
+      // @media @icons {
+      //   align-items: center;
+      // }
 
       // Stop moving/changing size of  teeth up and down with screen height
       @media @minMedia {

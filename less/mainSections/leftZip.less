@@ -4,11 +4,9 @@
 .zipper {
   // Styles for only the left half of the screen
   .left {
-    // right: calc((2 * @size) - 50%)
     right: 0px;
-    width: calc(50% - (@size / 2));
     &.animate {
-      right: 50%; // 2 * @size;
+      right: 55%;
     }
     display: flex;
     flex-direction: column;
@@ -16,27 +14,27 @@
 
     // "Real" teeth stick out of their door
     .tooth.real {
-      left: @size; //1.5 * @size;
+      left: @size;
       border-width: 1px 1px 1px 0;
       border-style: solid;
       border-color: black;
 
       // Stop re-positioning at a minimum height
       @media @minMedia {
-        left: 30px;
+        left: 60px;
       }
     }
     // "Fake" teeth draw a border in the indention
     // from the opposite door's "real" tooth
     .tooth.fake {
-      left: 0; // @size / 2;
+      left: 0;
       border-width: 0px 1px 0px 0;
       border-style: solid;
       border-color: black;
       // Stop re-positioning at a minimum height
-      @media @minMedia {
-        right: 30px;
-      }
+      // @media @minMedia {
+      //   right: 30px;
+      // }
     }
   }
 }

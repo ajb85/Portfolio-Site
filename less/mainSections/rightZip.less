@@ -4,10 +4,10 @@
 .zipper {
   // Styles for the right half of the screen
   .right {
-    left: 0; // calc((2 * @size) - 50%);
-    width: calc(50% - (@size / 2));
+    left: 0;
+
     &.animate {
-      left: 50%; // 2 * @size;
+      left: 55%; // 2 * @size;
     }
     // "Real" teeth stick out of their door
     .tooth.real {
@@ -17,7 +17,7 @@
       border-color: black;
 
       @media @minMedia {
-        right: 30px;
+        right: 60px;
       }
     }
     // "Fake" teeth draw a border in the indention
@@ -28,9 +28,9 @@
       border-style: solid;
       border-color: black;
 
-      @media @minMedia {
-        left: 30px;
-      }
+      // @media @minMedia {
+      //   left: 30px;
+      // }
     }
   }
 }
