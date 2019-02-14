@@ -184,7 +184,7 @@ img {
 }
 .zipper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   overflow: hidden;
   background-color: #cfb3a5;
@@ -194,9 +194,10 @@ img {
   height: 100vh;
   min-height: 300px;
   max-height: 1000px;
-  width: 50%;
-  position: relative;
+  width: 20vh;
   transition: 0s;
+  position: relative;
+  z-index: 1;
 }
 .zipper .left .tooth,
 .zipper .right .tooth {
@@ -208,6 +209,12 @@ img {
   width: 20vh;
   position: relative;
   bottom: 10vh;
+}
+@media (max-height: 420px) {
+  .zipper .left .tooth,
+  .zipper .right .tooth {
+    align-items: center;
+  }
 }
 @media (max-height: 300px) {
   .zipper .left .tooth,
@@ -264,18 +271,23 @@ img {
     display: none;
   }
 }
-.zipper .left h2.icon,
-.zipper .right h2.icon {
+.zipper .left i,
+.zipper .right i {
   display: none;
 }
 @media (max-height: 420px) {
-  .zipper .left h2.icon,
-  .zipper .right h2.icon {
+  .zipper .left i,
+  .zipper .right i {
     display: block;
   }
 }
+.zipper .left i,
+.zipper .right i {
+  font-size: 3em;
+}
 .zipper .left {
-  right: 0;
+  right: 0px;
+  width: calc(50% - (20vh / 2));
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -284,7 +296,7 @@ img {
   right: 50%;
 }
 .zipper .left .tooth.real {
-  left: 10vh;
+  left: 20vh;
   border-width: 1px 1px 1px 0;
   border-style: solid;
   border-color: black;
@@ -295,7 +307,7 @@ img {
   }
 }
 .zipper .left .tooth.fake {
-  right: 10vh;
+  left: 0;
   border-width: 0px 1px 0px 0;
   border-style: solid;
   border-color: black;
@@ -307,12 +319,13 @@ img {
 }
 .zipper .right {
   left: 0;
+  width: calc(50% - (20vh / 2));
 }
 .zipper .right.animate {
   left: 50%;
 }
 .zipper .right .tooth.real {
-  right: 10vh;
+  right: 20vh;
   border-width: 1px 0px 1px 1px;
   border-style: solid;
   border-color: black;
@@ -323,7 +336,7 @@ img {
   }
 }
 .zipper .right .tooth.fake {
-  left: 10vh;
+  right: 0;
   border-width: 0px 0px 0px 1px;
   border-style: solid;
   border-color: black;
@@ -335,4 +348,73 @@ img {
 }
 .content {
   cursor: pointer;
+}
+.animate .tooth p {
+  display: none;
+}
+.animate .tooth h2 {
+  display: none;
+}
+.animate .tooth i {
+  display: block;
+  margin-right: 7%;
+  font-size: 7em;
+}
+@media (max-height: 550px) {
+  .animate .tooth i {
+    font-size: 5em;
+  }
+}
+@media (max-height: 400px) {
+  .animate .tooth i {
+    font-size: 3em;
+  }
+}
+.animate.left .tooth {
+  align-items: flex-end;
+}
+.animate.right .tooth {
+  align-items: flex-start;
+}
+.fixedContainer {
+  position: absolute;
+  margin: auto;
+  max-width: 1000px;
+  top: 0;
+  width: 120px;
+  height: 60px;
+  z-index: 2;
+  background-color: #cfb3a5;
+}
+.fixedContainer .cta {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background-color: #b04446;
+  border: 2px solid #f5f0eb;
+  color: #f5f0eb;
+  left: 5px;
+  top: 7px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.zipper .contentContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 15px;
+  margin: auto;
+  z-index: 0;
+  max-width: 1000px;
+}
+.zipper .loadContent {
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 0;
+  max-width: calc(100% - 240px);
 }

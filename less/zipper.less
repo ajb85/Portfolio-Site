@@ -1,6 +1,6 @@
 .zipper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   overflow: hidden;
   background-color: @brown;
@@ -11,9 +11,10 @@
     height: 100vh;
     min-height: @minH;
     max-height: 1000px;
-    width: 50%;
-    position: relative;
+    width: @size;
     transition: 0s;
+    position: relative;
+    z-index: 1;
 
     // General styles for each "tooth", real and fake
     .tooth {
@@ -25,6 +26,11 @@
       width: @size;
       position: relative;
       bottom: @size / 2;
+
+      // Move icons to the center of the box
+      @media @icons {
+        align-items: center;
+      }
 
       // Stop moving/changing size of  teeth up and down with screen height
       @media @minMedia {
@@ -72,26 +78,32 @@
       }
     }
     // Only show icons at small screen heights
-    h2.icon {
+    i {
       display: none;
-      @media (max-height: 420px) {
+      @media @icons {
         display: block;
       }
     } // h2.icon
+    i {
+      font-size: 3em;
+    }
   } /// .left/.right
 
   // Styles for only the left half of the screen
   .left {
-    right: 0;
+    // right: calc((2 * @size) - 50%)
+    right: 0px;
+    width: calc(50% - (@size / 2));
     &.animate {
-      right: 50%;
+      right: 50%; // 2 * @size;
     }
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
     // "Real" teeth stick out of their door
     .tooth.real {
-      left: @size / 2;
+      left: @size; //1.5 * @size;
       border-width: 1px 1px 1px 0;
       border-style: solid;
       border-color: black;
@@ -104,7 +116,7 @@
     // "Fake" teeth draw a border in the indention
     // from the opposite door's "real" tooth
     .tooth.fake {
-      right: @size / 2;
+      left: 0; // @size / 2;
       border-width: 0px 1px 0px 0;
       border-style: solid;
       border-color: black;
@@ -117,13 +129,14 @@
 
   // Styles for the right half of the screen
   .right {
-    left: 0;
+    left: 0; // calc((2 * @size) - 50%);
+    width: calc(50% - (@size / 2));
     &.animate {
-      left: 50%;
+      left: 50%; // 2 * @size;
     }
     // "Real" teeth stick out of their door
     .tooth.real {
-      right: @size / 2;
+      right: @size; // 1.5 * @size;
       border-width: 1px 0px 1px 1px;
       border-style: solid;
       border-color: black;
@@ -135,7 +148,7 @@
     // "Fake" teeth draw a border in the indention
     // from the opposite door's "real" tooth
     .tooth.fake {
-      left: @size / 2;
+      right: 0; // @size / 2;
       border-width: 0px 0px 0px 1px;
       border-style: solid;
       border-color: black;
@@ -150,3 +163,38 @@
 .content {
   cursor: pointer;
 }
+
+.animate {
+  .tooth {
+    p {
+      display: none;
+    }
+    h2 {
+      display: none;
+    }
+    i {
+      display: block;
+      margin-right: 7%;
+      font-size: 7em;
+
+      @media (max-height: 550px) {
+        font-size: 5em;
+      }
+      @media (max-height: 400px) {
+        font-size: 3em;
+      }
+    }
+  } // .tooth
+
+  &.left {
+    .tooth {
+      align-items: flex-end;
+    }
+  } // .left
+
+  &.right {
+    .tooth {
+      align-items: flex-start;
+    }
+  }
+} // .animate

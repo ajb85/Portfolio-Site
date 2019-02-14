@@ -4,55 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
     <title>AJ Brush - Full Stack Developer</title>
 
+    <!-- ./js/ Scripts -->
+    <script src="./js/commonFunctions.js" defer></script>
     <script src="./js/moveDoors.js" defer></script>
+
     <!--
-      Initially created in my codepen: https://codepen.io/ajb85/pen/damXBE?editors=1111
+      Initially created in my codepen: https://codepen.io/ajb85/pen/damXBE
     -->
   </head>
   <body>
     <div class="container zipper">
+      <!-- cta button to reach out to me -->
+      <div class="fixedContainer"><button class="cta">Contact Me!</button></div>
+      <div class="contentContainer"><div class="loadContent"></div></div>
+
       <!-- "Real" teeth are mostly for content and stick out of the door -->
       <!--
         "Fake" teeth create borders for the indention on the opposite door
       -->
 
+      <!--
+        A set of teeth sit on top and bottom to create the illusion of the pattern continuing
+      -->
+
       <!-- Left "Door" -->
       <div class="left">
-        <!--
-          A set of teeth sit on top and bottom to create the illusion of the pattern continuing
-        -->
         <div class="tooth fake"></div>
-        <div class="tooth real">
+
+        <!-- About -->
+        <div class="tooth real content">
           <h2>About</h2>
-          <h2 class="icon">A</h2>
+          <i class="fas fa-portrait"></i>
           <p>Who I am and what I like to do!</p>
         </div>
         <div class="tooth fake"></div>
-        <div class="tooth real">
+
+        <!-- Projects -->
+        <div class="tooth real content">
           <h2>Projects</h2>
-          <h2 class="icon">P</h2>
+          <i class="far fa-file-code"></i>
           <p>Demos of my work along with GitHub links.</p>
         </div>
         <div class="tooth fake"></div>
         <div class="tooth real"></div>
       </div>
 
+      <!-- Right "Door" -->
       <div class="right">
         <div class="tooth real"></div>
         <div class="tooth fake"></div>
-        <div class="tooth real">
+
+        <!-- Skills -->
+        <div class="tooth real content">
           <h2>Skills</h2>
-          <h2 class="icon">S</h2>
+          <i class="fab fa-react"></i>
           <p>A list of my skills and the technologies I've learned.</p>
         </div>
-
         <div class="tooth fake"></div>
-        <div class="tooth real">
+
+        <!-- Social -->
+        <div class="tooth real content">
           <h2>Social</h2>
-          <h2 class="icon">S</h2>
+          <i class="fas fa-code-branch"></i>
           <p>How to reach me on LinkedIn, GitHub, etc</p>
         </div>
         <div class="tooth fake"></div>
