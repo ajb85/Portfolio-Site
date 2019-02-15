@@ -1,0 +1,38 @@
+.projectsContainer {
+  padding: 10px;
+  section.project {
+    display: flex;
+    justify-content: space-around;
+    div.projectInfo {
+      text-align: left;
+      width: 40%;
+      .flexAlign(space-between, flex-start);
+      flex-direction: column;
+
+      .projectLinks {
+        width: 100%;
+        .flexAlign(space-between);
+      }
+
+      a {
+        font-size: 2rem;
+        color: #000;
+      }
+      img {
+        display: block;
+      }
+
+      h3 {
+        font-size: 3rem;
+      }
+      span {
+        display: block;
+        margin: 5px 0;
+        font-size: 3rem;
+      }
+    }
+    p {
+      width: 40%;
+    }
+  }
+}

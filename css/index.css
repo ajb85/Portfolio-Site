@@ -573,11 +573,12 @@ div.homeContainer button.homeBtn.animate {
   max-width: calc(100% - 240px);
   background-color: #fcfcfa;
   border-radius: 10px;
-  max-width: 800px;
-  padding: 10px 50px;
+  max-width: 750px;
+  width: 75%;
+  padding: 10px 0 10px 10px;
 }
 .zipper .loadContent section {
-  padding: 30px 30px 60px 30px;
+  padding: 40px 30px;
   width: 100%;
   border-style: dotted;
   border-color: #000;
@@ -589,28 +590,112 @@ div.homeContainer button.homeBtn.animate {
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: 7px 7px rgba(50, 50, 50, 0.7);
+  text-align: left;
 }
-.loadContent h2 {
+.zipper .loadContent h2 {
   margin-bottom: 20px;
 }
-.loadContent section.aboutContent {
+.aboutContainer {
+  padding: 10px;
+}
+.aboutContainer section.aboutContent {
   border-width: 5px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.loadContent section.aboutContent img {
+.aboutContainer section.aboutContent img {
   border-radius: 10px;
   max-width: 150px;
 }
-.loadContent section.aboutContent2 {
-  margin: 30px 0;
-}
-.loadContent section.aboutContent2 p {
+.aboutContainer section.aboutContent2 p {
   margin: auto;
   padding: 30px;
   max-width: 600px;
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: 7px 7px rgba(50, 50, 50, 0.7);
+}
+.skillsContainer {
+  overflow-y: scroll;
+  max-height: 87vh;
+  width: 100%;
+  padding-right: 10px;
+}
+.skillsContainer section.techIcons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-width: 5px 0;
+  font-size: 5rem;
+}
+.skillsContainer section.skillsInfo h2 {
+  text-decoration: underline;
+}
+.skillsContainer section.skillsInfo p {
+  margin: auto;
+  max-width: none;
+  width: 90%;
+}
+.projectsContainer {
+  padding: 10px;
+}
+.projectsContainer section.project {
+  display: flex;
+  justify-content: space-around;
+}
+.projectsContainer section.project div.projectInfo {
+  text-align: left;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.projectsContainer section.project div.projectInfo .projectLinks {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.projectsContainer section.project div.projectInfo a {
+  font-size: 2rem;
+  color: #000;
+}
+.projectsContainer section.project div.projectInfo img {
+  display: block;
+}
+.projectsContainer section.project div.projectInfo h3 {
+  font-size: 3rem;
+}
+.projectsContainer section.project div.projectInfo span {
+  display: block;
+  margin: 5px 0;
+  font-size: 3rem;
+}
+.projectsContainer section.project p {
+  width: 40%;
+}
+.socialContainer {
+  text-align: center;
+  padding: 10px;
+}
+.socialContainer section {
+  border-width: 5px 0;
+}
+.socialContainer section h3 {
+  font-size: 2rem;
+}
+.socialContainer section p {
+  margin: auto;
+  text-align: left;
+}
+.socialContainer section p span {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.socialContainer section p span a {
+  color: #000;
 }
