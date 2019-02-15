@@ -38,13 +38,13 @@ div.homeContainer {
   margin: auto;
   max-width: @maxW;
   z-index: 2;
-  .flexAlign(flex-end);
+  .flexAlign(flex-start);
 
   button.homeBtn {
     background-color: @white;
     border-color: @red;
     color: @red;
-    margin-right: 2%;
+    margin-left: 2%;
     font-size: 2rem;
     border-radius: 50%;
     visibility: hidden;
@@ -54,9 +54,6 @@ div.homeContainer {
     &.animate {
       visibility: visible;
       opacity: 100;
-
-      i {
-      }
     } // .animate
   } // .homeBtn
 } // .homeContainer

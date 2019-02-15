@@ -179,7 +179,7 @@ button:focus {
   height: 100vh;
   min-height: 300px;
   max-height: 1000px;
-  max-width: 1000px;
+  max-width: 2000px;
   width: 100%;
   margin: auto;
   border-left: 1px solid black;
@@ -190,7 +190,7 @@ button:focus {
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  background-color: #cfb3a5;
+  background-color: #938b81;
 }
 .zipper .left,
 .zipper .right {
@@ -201,7 +201,6 @@ button:focus {
   transition: 0s;
   position: relative;
   z-index: 1;
-  background-color: #cfb3a5;
 }
 @media (max-height: 300px) {
   .zipper .left,
@@ -209,18 +208,100 @@ button:focus {
     width: calc(50% - 30px);
   }
 }
+.zipper .left button.tooth,
+.zipper .right button.tooth {
+  cursor: pointer;
+}
 .zipper .left .tooth,
 .zipper .right .tooth {
   padding: 0 10px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   min-height: 20vh;
   width: 20vh;
   position: relative;
   bottom: 10vh;
-  background-color: #cfb3a5;
+  background-color: transparent;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.zipper .left .tooth.real,
+.zipper .right .tooth.real {
+  background-color: #fcfcfa;
+}
+.zipper .left .tooth.real:hover .toothText,
+.zipper .right .tooth.real:hover .toothText {
+  top: calc(20vh / 8);
+}
+@media (max-height: 700px) {
+  .zipper .left .tooth.real:hover .toothText,
+  .zipper .right .tooth.real:hover .toothText {
+    top: 0px;
+  }
+}
+@media (max-height: 515px) {
+  .zipper .left .tooth.real:hover .toothText,
+  .zipper .right .tooth.real:hover .toothText {
+    top: calc(-20vh / 4);
+  }
+}
+@media (max-height: 420px) {
+  .zipper .left .tooth.real:hover .toothText,
+  .zipper .right .tooth.real:hover .toothText {
+    top: calc(-20vh / 3.5);
+  }
+}
+@media (max-height: 370px) {
+  .zipper .left .tooth.real:hover .toothText,
+  .zipper .right .tooth.real:hover .toothText {
+    top: calc(20vh / 1.9);
+  }
+}
+.zipper .left .tooth.real:hover .toothText p,
+.zipper .right .tooth.real:hover .toothText p {
+  visibility: visible;
+  opacity: 100;
+}
+.zipper .left .tooth.real:hover i,
+.zipper .right .tooth.real:hover i {
+  bottom: calc(20vh / 3);
+}
+@media (max-height: 550px) {
+  .zipper .left .tooth.real:hover i,
+  .zipper .right .tooth.real:hover i {
+    bottom: calc(20vh / 2.5);
+  }
+}
+@media (max-height: 460px) {
+  .zipper .left .tooth.real:hover i,
+  .zipper .right .tooth.real:hover i {
+    bottom: calc(20vh / 2);
+  }
+}
+@media (max-height: 370px) {
+  .zipper .left .tooth.real:hover i,
+  .zipper .right .tooth.real:hover i {
+    bottom: -2vh;
+  }
+}
+.zipper .left .tooth .toothText,
+.zipper .right .tooth .toothText {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: calc(20vh / 2);
+  transition: 0.5s;
+  width: 90%;
+}
+@media (max-height: 550px) {
+  .zipper .left .tooth .toothText,
+  .zipper .right .tooth .toothText {
+    top: calc(20vh / 1.7);
+  }
 }
 @media (max-height: 300px) {
   .zipper .left .tooth,
@@ -231,100 +312,135 @@ button:focus {
   }
 }
 .zipper .left p,
-.zipper .right p,
-.zipper .left h2,
-.zipper .right h2 {
+.zipper .right p {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
   margin: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -khtml-user-select: none;
 }
-@media (max-height: 525px) {
+@media (max-height: 630px) {
   .zipper .left p,
   .zipper .right p {
-    display: none;
+    font-size: 1.3rem;
   }
 }
-@media (max-height: 700px) {
+@media (max-height: 440px) {
   .zipper .left p,
   .zipper .right p {
-    line-height: 1.3;
+    line-height: 1.2;
   }
 }
-@media (max-height: 620px) {
+@media (max-height: 400px) {
   .zipper .left p,
   .zipper .right p {
     font-size: 1.2rem;
   }
 }
-@media (max-height: 620px) {
-  .zipper .left h2,
-  .zipper .right h2 {
-    font-size: 2.5rem;
+@media (max-height: 370px) {
+  .zipper .left p,
+  .zipper .right p {
+    display: none;
   }
 }
-@media (max-height: 500px) {
+.zipper .left h2,
+.zipper .right h2 {
+  position: relative;
+  transition: 0.5s;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+}
+.zipper .left h2.abrvH2,
+.zipper .right h2.abrvH2 {
+  display: none;
+}
+@media (max-height: 650px) {
   .zipper .left h2,
   .zipper .right h2 {
-    font-size: 2rem;
+    font-size: 2.8rem;
+  }
+}
+@media (max-height: 530px) {
+  .zipper .left h2,
+  .zipper .right h2 {
+    font-size: 2.2rem;
   }
 }
 @media (max-height: 420px) {
   .zipper .left h2,
   .zipper .right h2 {
-    display: none;
+    font-size: 1.8rem;
+  }
+}
+@media (max-height: 420px) {
+  .zipper .left h2,
+  .zipper .right h2 {
+    font-size: 1.5rem;
   }
 }
 .zipper .left i,
 .zipper .right i {
-  display: none;
+  position: relative;
   font-size: 3em;
+  transition: 0.5s;
+  bottom: -3.33333333vh;
+}
+@media (max-height: 440px) {
+  .zipper .left i,
+  .zipper .right i {
+    bottom: -5px;
+  }
 }
 @media (max-height: 420px) {
   .zipper .left i,
   .zipper .right i {
-    display: block;
+    bottom: -5px;
+    font-size: 2.7rem;
   }
 }
 .content {
   cursor: pointer;
 }
-.showIcon .tooth p {
-  display: none;
-}
-.showIcon .tooth h2 {
-  display: none;
-}
-.showIcon .tooth i {
-  display: block;
-  margin-right: 7%;
-  font-size: 7em;
-}
-@media (max-height: 550px) {
-  .showIcon .tooth i {
-    font-size: 5em;
-  }
-}
-@media (max-height: 400px) {
-  .showIcon .tooth i {
-    font-size: 3em;
-  }
-}
-.showIcon.left .tooth {
-  align-items: flex-end;
-}
-.showIcon.right .tooth {
-  align-items: flex-start;
-}
 .zipper .left {
-  right: 0px;
+  background-image: url("../img/leftBG.jpg");
+  background-size: 101% 101%;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  right: 0px;
 }
 .zipper .left.animate {
-  right: 55%;
+  right: 50%;
+}
+.zipper .left.animate .tooth {
+  align-items: flex-end;
+  background-color: #1a151c;
+  color: #fcfcfa;
+}
+.zipper .left.animate .tooth .toothText {
+  align-items: flex-end;
+}
+.zipper .left.animate .tooth .toothText h2 {
+  display: none;
+}
+.zipper .left.animate .tooth .toothText h2.abrvH2 {
+  display: block;
+}
+.zipper .left.animate .tooth:hover .toothText {
+  top: calc(20vh / 2);
+}
+.zipper .left.animate .tooth:hover .toothText p {
+  display: none;
+}
+.zipper .left.animate .tooth:hover i {
+  bottom: -4vh;
 }
 .zipper .left .tooth.real {
   left: 20vh;
@@ -344,10 +460,30 @@ button:focus {
   border-color: black;
 }
 .zipper .right {
+  background-image: url("../img/rightBG.jpg");
+  background-size: 101% 101%;
+  background-repeat: no-repeat;
   left: 0;
 }
 .zipper .right.animate {
-  left: 55%;
+  left: 50%;
+}
+.zipper .right.animate .tooth {
+  align-items: flex-start;
+  background-color: #1a151c;
+  color: #fcfcfa;
+}
+.zipper .right.animate .tooth .toothText {
+  align-items: flex-start;
+}
+.zipper .right.animate .tooth:hover .toothText {
+  top: calc(20vh / 2);
+}
+.zipper .right.animate .tooth:hover .toothText p {
+  display: none;
+}
+.zipper .right.animate .tooth:hover i {
+  bottom: calc(-20vh / 5);
 }
 .zipper .right .tooth.real {
   right: 20vh;
@@ -369,7 +505,7 @@ button:focus {
 .ctaContainer {
   position: absolute;
   margin: auto;
-  max-width: 1000px;
+  max-width: 2000px;
   top: 0;
   width: 120px;
   height: 60px;
@@ -380,8 +516,8 @@ button:focus {
   width: 100px;
   height: 40px;
   background-color: #b04446;
-  border: 2px solid #f5f0eb;
-  color: #f5f0eb;
+  border: 2px solid #fcfcfa;
+  color: #fcfcfa;
   left: 5px;
   top: 7px;
   border-radius: 7px;
@@ -397,17 +533,17 @@ div.homeContainer {
   left: 0;
   right: 0;
   margin: auto;
-  max-width: 1000px;
+  max-width: 2000px;
   z-index: 2;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 div.homeContainer button.homeBtn {
-  background-color: #f5f0eb;
+  background-color: #fcfcfa;
   border-color: #b04446;
   color: #b04446;
-  margin-right: 2%;
+  margin-left: 2%;
   font-size: 2rem;
   border-radius: 50%;
   visibility: hidden;
@@ -422,10 +558,11 @@ div.homeContainer button.homeBtn.animate {
   position: absolute;
   left: 0;
   right: 0;
-  top: 15px;
+  top: calc(20vh / 2);
   margin: auto;
   z-index: 0;
-  max-width: 1000px;
+  max-width: 2000px;
+  text-align: center;
 }
 .zipper .loadContent {
   position: relative;
@@ -434,4 +571,46 @@ div.homeContainer button.homeBtn.animate {
   margin: auto;
   z-index: 0;
   max-width: calc(100% - 240px);
+  background-color: #fcfcfa;
+  border-radius: 10px;
+  max-width: 800px;
+  padding: 10px 50px;
+}
+.zipper .loadContent section {
+  padding: 30px 30px 60px 30px;
+  width: 100%;
+  border-style: dotted;
+  border-color: #000;
+  border-width: 0 0 5px 0;
+}
+.zipper .loadContent p {
+  padding: 30px;
+  max-width: 400px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 7px 7px rgba(50, 50, 50, 0.7);
+}
+.loadContent h2 {
+  margin-bottom: 20px;
+}
+.loadContent section.aboutContent {
+  border-width: 5px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.loadContent section.aboutContent img {
+  border-radius: 10px;
+  max-width: 150px;
+}
+.loadContent section.aboutContent2 {
+  margin: 30px 0;
+}
+.loadContent section.aboutContent2 p {
+  margin: auto;
+  padding: 30px;
+  max-width: 600px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 7px 7px rgba(50, 50, 50, 0.7);
 }

@@ -4,10 +4,35 @@
 .zipper {
   // Styles for the right half of the screen
   .right {
+    background-image: url("../img/rightBG.jpg");
+    background-size: 101% 101%;
+    background-repeat: no-repeat;
     left: 0;
 
     &.animate {
-      left: 55%; // 2 * @size;
+      left: 50%; // 2 * @size;
+      .tooth {
+        align-items: flex-start;
+        background-color: @purple;
+        color: @white;
+
+        .toothText {
+          align-items: flex-start;
+        }
+
+        &:hover {
+          .toothText {
+            top: calc(@size / 2);
+
+            p {
+              display: none;
+            }
+          }
+          i {
+            bottom: calc(-@size / 5);
+          }
+        } // button.tooth:hover
+      } // button.tooth
     }
     // "Real" teeth stick out of their door
     .tooth.real {

@@ -16,27 +16,80 @@
     transition: 0s;
     position: relative;
     z-index: 1;
-    background-color: @bgColor;
 
     @media @minMedia {
       width: calc(50% - 30px);
     }
 
     // General styles for each "tooth", real and fake
+    button.tooth {
+      cursor: pointer;
+    }
     .tooth {
       padding: 0 10px;
-      .flexAlign;
+      .flexAlign(flex-start);
       flex-direction: column;
       min-height: @size;
       width: @size;
       position: relative;
       bottom: @size / 2;
-      background-color: @bgColor;
+      background-color: transparent;
+      overflow: hidden;
+      transition: 0.5s;
 
-      // Move icons to the center of the box
-      // @media @icons {
-      //   align-items: center;
-      // }
+      &.real {
+        background-color: @toothBG;
+      }
+
+      &.real:hover {
+        .toothText {
+          top: calc(@size / 8);
+
+          @media (max-height: 700px) {
+            top: 0px;
+          }
+          @media (max-height: 515px) {
+            top: calc(-@size / 4);
+          }
+          @media (max-height: 420px) {
+            top: calc(-@size / 3.5);
+          }
+          @media (max-height: 370px) {
+            top: calc(@size / 1.9);
+          }
+
+          p {
+            visibility: visible;
+            opacity: 100;
+          }
+        }
+        i {
+          bottom: calc(@size / 3);
+
+          @media (max-height: 550px) {
+            bottom: calc(@size / 2.5);
+          }
+          @media (max-height: 460px) {
+            bottom: calc(@size / 2);
+          }
+          @media (max-height: 370px) {
+            bottom: (-@size / 10);
+          }
+        }
+      } // real:hover
+
+      .toothText {
+        .flexAlign(flex-end);
+        flex-direction: column;
+        position: absolute;
+        top: calc(@size / 2);
+        transition: 0.5s;
+        width: 90%;
+
+        @media (max-height: 550px) {
+          top: calc(@size / 1.7);
+        }
+      }
 
       // Stop moving/changing size of  teeth up and down with screen height
       @media @minMedia {
@@ -45,50 +98,69 @@
         min-height: 60px;
       }
     }
-    // Small boxes --> no margins.
-    // Center text in the zipper
-    p,
-    h2 {
+    // Resize/position text based on screen size
+    p {
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.5s;
       margin: 0;
       // Don't allow text to be selected
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       -khtml-user-select: none;
-    }
-    // Resize/position text based on screen size
-    p {
-      @media (max-height: 525px) {
-        display: none;
+
+      @media (max-height: 630px) {
+        font-size: 1.3rem;
       }
-      @media (max-height: 700px) {
-        line-height: 1.3;
+      @media (max-height: 440px) {
+        line-height: 1.2;
       }
-      @media (max-height: 620px) {
+      @media (max-height: 400px) {
         font-size: 1.2rem;
+      }
+      @media (max-height: 370px) {
+        display: none;
       }
     }
     h2 {
-      @media (max-height: 620px) {
-        font-size: 2.5rem;
+      &.abrvH2 {
+        display: none;
       }
-      // @media (max-height: 560px) {
-      //   font-size: 2.5rem;
-      // }
-      @media (max-height: 500px) {
-        font-size: 2rem;
+      position: relative;
+      transition: 0.5s;
+      margin: 0;
+      // Don't allow text to be selected
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -khtml-user-select: none;
+
+      @media (max-height: 650px) {
+        font-size: 2.8rem;
+      }
+      @media (max-height: 530px) {
+        font-size: 2.2rem;
       }
       @media (max-height: 420px) {
-        display: none;
+        font-size: 1.8rem;
+      }
+      @media (max-height: 420px) {
+        font-size: 1.5rem;
       }
     }
     i {
-      display: none;
+      position: relative;
       font-size: 3em;
+      transition: 0.5s;
+      bottom: (-@size / 6);
 
-      // Only show icons at small screen heights
-      @media @icons {
-        display: block;
+      @media (max-height: 440px) {
+        bottom: -5px;
+      }
+      @media (max-height: 420px) {
+        bottom: -5px;
+        font-size: 2.7rem;
       }
     } // i
   } /// .left/.right
@@ -97,38 +169,3 @@
 .content {
   cursor: pointer;
 }
-
-.showIcon {
-  .tooth {
-    p {
-      display: none;
-    }
-    h2 {
-      display: none;
-    }
-    i {
-      display: block;
-      margin-right: 7%;
-      font-size: 7em;
-
-      @media (max-height: 550px) {
-        font-size: 5em;
-      }
-      @media (max-height: 400px) {
-        font-size: 3em;
-      }
-    }
-  } // .tooth
-
-  &.left {
-    .tooth {
-      align-items: flex-end;
-    }
-  } // .left
-
-  &.right {
-    .tooth {
-      align-items: flex-start;
-    }
-  }
-} // .animate

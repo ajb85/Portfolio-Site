@@ -51,8 +51,6 @@ function animateSides(e, home) {
   function toggleClasses(reopen) {
     // If we are just moving the doors once, flip vis on icons, text
     if (!reopen) {
-      leftDiv.classList.toggle("showIcon");
-      rightDiv.classList.toggle("showIcon");
     }
     // Once the animate class is toggled on, doors open
     // Toggled off, doors closed
