@@ -1,3 +1,7 @@
+//local vars
+@h2Height: calc(100vh / 20);
+@h2Margin: 1vh;
+
 .zipper {
   display: flex;
   justify-content: space-between;
@@ -21,75 +25,66 @@
       width: calc(50% - 30px);
     }
 
-    // General styles for each "tooth", real and fake
     button.tooth {
       cursor: pointer;
-    }
-    .tooth {
-      padding: 0 10px;
-      .flexAlign(flex-start);
-      flex-direction: column;
-      min-height: @size;
-      width: @size;
-      position: relative;
-      bottom: @size / 2;
-      background-color: transparent;
-      overflow: hidden;
-      //transition: 0.5s;
+      // Because Safari is the worst and likes margins here:
+      margin: 0;
 
-      &.real {
-        background-color: @toothBG;
+      div {
+        width: 90%;
+        position: absolute;
+        transition: 0.5s;
+        top: calc((@h2Height / 2) + (@h2Margin * 1.5));
+
+        i {
+          visibility: visible;
+          opacity: 100;
+          font-size: 6vh;
+          transition: 0.5s;
+        }
+
+        h2 {
+          &.abrvH2 {
+            display: none;
+          }
+          margin-top: @h2Margin;
+          font-size: 4.5vh;
+          transition: 0.5s;
+        }
+
+        p {
+          visibility: hidden;
+          opacity: 0;
+          font-size: 2vh;
+          transition: 0.5s;
+        }
       }
 
-      &.real:hover {
-        .toothText {
-          top: calc(@size / 8);
-
-          @media (max-height: 700px) {
-            top: 0px;
-          }
-          @media (max-height: 515px) {
-            top: calc(-@size / 4);
-          }
-          @media (max-height: 420px) {
-            top: calc(-@size / 3.5);
-          }
-          @media (max-height: 370px) {
-            top: calc(@size / 1.9);
-          }
+      &:hover {
+        div {
+          top: calc((@h2Height / 2) - (@size / 2.8));
 
           p {
             visibility: visible;
             opacity: 100;
           }
-        }
-        i {
-          bottom: calc(@size / 3);
 
-          @media (max-height: 550px) {
-            bottom: calc(@size / 2.5);
+          i {
+            visibility: hidden;
+            opacity: 0;
           }
-          @media (max-height: 460px) {
-            bottom: calc(@size / 2);
-          }
-          @media (max-height: 370px) {
-            bottom: (-@size / 10);
-          }
-        }
-      } // real:hover
-
-      .toothText {
-        .flexAlign(flex-end);
-        flex-direction: column;
-        position: absolute;
-        top: calc(@size / 2);
-        transition: 0.5s;
-        width: 90%;
-
-        @media (max-height: 550px) {
-          top: calc(@size / 1.7);
         }
       }
+    }
+    // General styles for each "tooth", real and fake
+    .tooth {
+      min-height: @size;
+      max-height: @size;
+      width: @size;
+      position: relative;
+      bottom: @size / 2;
+      background-color: transparent;
+      overflow: hidden;
 
       // Stop moving/changing size of  teeth up and down with screen height
       @media @minMedia {
@@ -97,72 +92,21 @@
         min-width: 60px;
         min-height: 60px;
       }
+    } // tooth
+    .tooth.real {
+      background-color: @toothBG;
     }
-    // Resize/position text based on screen size
-    p {
-      visibility: hidden;
-      opacity: 0;
-      transition: 0.5s;
-      margin: 0;
-      // Don't allow text to be selected
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -khtml-user-select: none;
 
-      @media (max-height: 630px) {
-        font-size: 1.3rem;
-      }
-      @media (max-height: 440px) {
-        line-height: 1.2;
-      }
-      @media (max-height: 400px) {
-        font-size: 1.2rem;
-      }
-      @media (max-height: 370px) {
-        display: none;
-      }
-    }
-    h2 {
-      &.abrvH2 {
-        display: none;
-      }
-      position: relative;
-      transition: 0.5s;
-      margin: 0;
-      // Don't allow text to be selected
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -khtml-user-select: none;
-
-      @media (max-height: 650px) {
-        font-size: 2.8rem;
-      }
-      @media (max-height: 530px) {
-        font-size: 2.2rem;
-      }
-      @media (max-height: 420px) {
-        font-size: 1.8rem;
-      }
-      @media (max-height: 420px) {
-        font-size: 1.5rem;
-      }
-    }
+    h2,
+    p,
     i {
-      position: relative;
-      font-size: 3em;
-      transition: 0.5s;
-      bottom: (-@size / 6);
-
-      @media (max-height: 440px) {
-        bottom: -5px;
-      }
-      @media (max-height: 420px) {
-        bottom: -5px;
-        font-size: 2.7rem;
-      }
-    } // i
+      margin: 0;
+      // Don't allow text to be selected
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -khtml-user-select: none;
+    }
   } /// .left/.right
 }
 // Show cursor as pointed over content boxes
