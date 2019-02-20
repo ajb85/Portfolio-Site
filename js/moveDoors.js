@@ -4,6 +4,12 @@
 $qa("button.tooth").forEach(box =>
   box.addEventListener("click", e => animateSides(e))
 );
+
+// cta click -- load Social for now
+$q("button.cta").addEventListener("click", () =>
+  animateSides({ target: $qa("button.tooth")[3] })
+);
+
 // Return doors to closed when home is clicked
 const homeBtn = $q(".homeBtn");
 homeBtn.addEventListener("click", e => animateSides(e, "home"));
@@ -60,13 +66,13 @@ function animateSides(e, home) {
 }
 
 function loadContent(target) {
-  let div = target;
+  let button = target;
   const content = $q(".loadContent");
-  // Find the parent DIV element so we can grab the name of the <h2> element
-  while (div.tagName !== "DIV") {
-    div = div.parentNode;
+  // Find the parent button element so we can grab the name of the first <h2> element
+  while (button.tagName !== "BUTTON") {
+    button = button.parentNode;
   }
-  const section = div.querySelector("h2").textContent;
+  const section = button.querySelector("h2").textContent;
 
   jQuery(content).load(`./sections/${section.toLowerCase()}.html`);
 }

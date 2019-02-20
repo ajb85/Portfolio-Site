@@ -225,7 +225,6 @@ button:focus {
   bottom: 10vh;
   background-color: transparent;
   overflow: hidden;
-  transition: 0.5s;
 }
 .zipper .left .tooth.real,
 .zipper .right .tooth.real {
@@ -421,8 +420,6 @@ button:focus {
 }
 .zipper .left.animate .tooth {
   align-items: flex-end;
-  background-color: #1a151c;
-  color: #fcfcfa;
 }
 .zipper .left.animate .tooth .toothText {
   align-items: flex-end;
@@ -470,8 +467,6 @@ button:focus {
 }
 .zipper .right.animate .tooth {
   align-items: flex-start;
-  background-color: #1a151c;
-  color: #fcfcfa;
 }
 .zipper .right.animate .tooth .toothText {
   align-items: flex-start;
@@ -576,6 +571,8 @@ div.homeContainer button.homeBtn.animate {
   max-width: 750px;
   width: 75%;
   padding: 10px 0 10px 10px;
+  height: calc(100vh - (20vh / 2));
+  overflow-y: scroll;
 }
 .zipper .loadContent section {
   padding: 40px 30px;
