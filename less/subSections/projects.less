@@ -1,38 +1,87 @@
+@firstBreak: ~"(max-width:700px)";
+@secondBreak: ~"(max-width: 470px)";
 .projectsContainer {
   padding: 10px;
   section.project {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
+    border-top: 5px dotted #000;
+
     div.projectInfo {
       text-align: left;
-      width: 40%;
-      .flexAlign(space-between, flex-start);
-      flex-direction: column;
+      width: 100%;
+      .flexAlign(space-evenly);
 
-      .projectLinks {
-        width: 100%;
-        .flexAlign(space-between);
+      @media @firstBreak {
+        flex-direction: column;
       }
-
       a {
-        font-size: 2rem;
-        color: #000;
+        // Picture link
+        width: 55%;
+
+        @media @firstBreak {
+          width: 80%;
+        }
       }
       img {
         display: block;
+        border-radius: 15px;
       }
+      div.techUsed {
+        @media @firstBreak {
+          margin-top: 30px;
+          .flexAlign;
+          flex-wrap: wrap;
+          text-align: center;
+        }
 
-      h3 {
-        font-size: 3rem;
-      }
-      span {
-        display: block;
-        margin: 5px 0;
-        font-size: 3rem;
-      }
-    }
+        @media @secondBreak {
+          flex-direction: column;
+        }
+        h3 {
+          font-size: 3rem;
+
+          @media @firstBreak {
+            width: 100%;
+          }
+        }
+        span {
+          display: block;
+          margin: 5px 0;
+          font-size: 3rem;
+
+          @media @firstBreak {
+            width: 50%;
+            font-size: 2.5rem;
+            margin-top: 10px;
+          }
+
+          @media @secondBreak {
+            width: 100%;
+          }
+        }
+      } // .techUsed
+    } // .projectInfo
     p {
-      width: 40%;
+      margin-top: 20px;
+      text-align: left;
+      width: 100%;
+      padding: 0 15px;
+      line-height: 1.6;
+    }
+    .projectLinks {
+      width: 100%;
+      .flexAlign(space-evenly);
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 5px dotted #000;
+      // Github / Demo links
+      a {
+        //text-decoration: none;
+        color: #000;
+        font-size: 2.5rem;
+      }
     }
   }
 }

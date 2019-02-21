@@ -550,7 +550,7 @@ div.homeContainer button.homeBtn.animate {
   right: 0;
   margin: auto;
   z-index: 0;
-  max-width: calc(100% - 240px);
+  max-width: 90%;
   background-color: #fcfcfa;
   border-radius: 10px;
   max-width: 750px;
@@ -560,13 +560,13 @@ div.homeContainer button.homeBtn.animate {
   overflow-y: scroll;
 }
 .zipper .loadContent section {
-  padding: 40px 30px;
+  padding: 40px 0;
   width: 100%;
   border-style: dotted;
   border-color: #000;
   border-width: 0 0 5px 0;
 }
-.zipper .loadContent p {
+.zipper .loadContent p.bubble {
   padding: 30px;
   max-width: 400px;
   border: 1px solid #000;
@@ -625,38 +625,92 @@ div.homeContainer button.homeBtn.animate {
 .projectsContainer section.project {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
+  border-top: 5px dotted #000;
 }
 .projectsContainer section.project div.projectInfo {
   text-align: left;
-  width: 40%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.projectsContainer section.project div.projectInfo .projectLinks {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
+@media (max-width:700px) {
+  .projectsContainer section.project div.projectInfo {
+    flex-direction: column;
+  }
+}
 .projectsContainer section.project div.projectInfo a {
-  font-size: 2rem;
-  color: #000;
+  width: 55%;
+}
+@media (max-width:700px) {
+  .projectsContainer section.project div.projectInfo a {
+    width: 80%;
+  }
 }
 .projectsContainer section.project div.projectInfo img {
   display: block;
+  border-radius: 15px;
 }
-.projectsContainer section.project div.projectInfo h3 {
+@media (max-width:700px) {
+  .projectsContainer section.project div.projectInfo div.techUsed {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+@media (max-width: 470px) {
+  .projectsContainer section.project div.projectInfo div.techUsed {
+    flex-direction: column;
+  }
+}
+.projectsContainer section.project div.projectInfo div.techUsed h3 {
   font-size: 3rem;
 }
-.projectsContainer section.project div.projectInfo span {
+@media (max-width:700px) {
+  .projectsContainer section.project div.projectInfo div.techUsed h3 {
+    width: 100%;
+  }
+}
+.projectsContainer section.project div.projectInfo div.techUsed span {
   display: block;
   margin: 5px 0;
   font-size: 3rem;
 }
+@media (max-width:700px) {
+  .projectsContainer section.project div.projectInfo div.techUsed span {
+    width: 50%;
+    font-size: 2.5rem;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 470px) {
+  .projectsContainer section.project div.projectInfo div.techUsed span {
+    width: 100%;
+  }
+}
 .projectsContainer section.project p {
-  width: 40%;
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+  padding: 0 15px;
+  line-height: 1.6;
+}
+.projectsContainer section.project .projectLinks {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 5px dotted #000;
+}
+.projectsContainer section.project .projectLinks a {
+  color: #000;
+  font-size: 2.5rem;
 }
 .socialContainer {
   text-align: center;
