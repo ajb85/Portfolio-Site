@@ -55,20 +55,21 @@ function animateSides(e, home) {
     }, 500);
   }
   function toggleClasses(reopen) {
-    // If we are just moving the doors once, flip vis on icons, text
+    console.log("reopen: ", reopen);
+    // Do not animate teeth if we're just reopening the doors
     if (!reopen) {
+      const leftTeeth = leftDiv.querySelectorAll(".tooth");
+      const rightTeeth = rightDiv.querySelectorAll(".tooth");
+      leftTeeth.forEach((tooth, i) => {
+        tooth.classList.toggle("closed");
+        tooth.classList.toggle("open");
+        rightTeeth[i].classList.toggle("closed");
+        rightTeeth[i].classList.toggle("open");
+      });
     }
-    // Once the animate class is toggled on, doors open
-    // Toggled off, doors closed
-    const leftTeeth = leftDiv.querySelectorAll(".tooth");
-    const rightTeeth = rightDiv.querySelectorAll(".tooth");
+
+    // Door animation.  Only thing that should change if we're reopening
     leftDiv.classList.toggle("animate");
-    leftTeeth.forEach((tooth, i) => {
-      tooth.classList.toggle("closed");
-      tooth.classList.toggle("open");
-      rightTeeth[i].classList.toggle("closed");
-      rightTeeth[i].classList.toggle("open");
-    });
     rightDiv.classList.toggle("animate");
   }
 }

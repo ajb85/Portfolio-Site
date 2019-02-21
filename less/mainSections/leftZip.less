@@ -12,49 +12,50 @@
     align-items: flex-end;
     right: 0px;
 
+    button.open {
+      div.toothContent {
+        .flexAlign(center, center);
+        flex-direction: column;
+        h2,
+        p {
+          display: none;
+          font-size: 3.5vh;
+          @media @minMedia {
+            font-size: 10.5px;
+          }
+        }
+        i {
+          font-size: 3vh;
+          transform: translate(8vh);
+          @media @minMedia {
+            transform: translate(24px);
+            font-size: 9px;
+          }
+        }
+      } // content div
+
+      &:hover {
+        div.toothContent {
+          i {
+            display: none;
+          }
+          h2 {
+            display: block;
+            //font-family: @regFont;
+            transform: rotate(-90deg) translate(0px, 8.2vh);
+            @media @minMedia {
+              transform: rotate(-90deg) translate(0px, 24.6px);
+            }
+          }
+        }
+      }
+    } // button.open
+
     &.animate {
       right: calc(50% + (@size / 3.2));
       @media @minMedia {
         right: calc(50% + 18.75px);
       }
-      button.open {
-        div.toothContent {
-          .flexAlign(center, center);
-          flex-direction: column;
-          h2,
-          p {
-            display: none;
-            font-size: 3.5vh;
-            @media @minMedia {
-              font-size: 10.5px;
-            }
-          }
-          i {
-            font-size: 3vh;
-            transform: translate(8vh);
-            @media @minMedia {
-              transform: translate(24px);
-              font-size: 9px;
-            }
-          }
-        } // content div
-
-        &:hover {
-          div.toothContent {
-            i {
-              display: none;
-            }
-            h2 {
-              display: block;
-              //font-family: @regFont;
-              transform: rotate(-90deg) translate(0px, 8.2vh);
-              @media @minMedia {
-                transform: rotate(-90deg) translate(0px, 24.6px);
-              }
-            }
-          }
-        }
-      } // button.open
     } // .animate
 
     // "Real" teeth stick out of their door
