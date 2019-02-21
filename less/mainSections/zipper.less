@@ -1,6 +1,6 @@
 //local vars
-@h2Height: calc(100vh / 20);
-@h2Margin: 1vh;
+@h2Height: calc(100vh / 20); // 15px @ 300px
+@h2Margin: 1vh; // 3px @ 300px
 
 .zipper {
   display: flex;
@@ -25,57 +25,86 @@
       width: calc(50% - 30px);
     }
 
-    button.tooth {
+    button.closed {
       cursor: pointer;
       // Because Safari is the worst and likes margins here:
       margin: 0;
 
-      div {
+      div.toothContent {
         width: 90%;
         position: absolute;
         transition: 0.5s;
         top: calc((@h2Height / 2) + (@h2Margin * 1.5));
 
+        @media @minMedia {
+          top: calc((15px / 2) + (3px * 1.5));
+        }
+
         i {
           visibility: visible;
           opacity: 100;
-          font-size: 6vh;
+          font-size: 6vh; // 18px @ 300px
           transition: 0.5s;
-        }
 
-        h2 {
-          &.abrvH2 {
-            display: none;
+          @media @minMedia {
+            font-size: 18px;
           }
-          margin-top: @h2Margin;
-          font-size: 4.5vh;
-          transition: 0.5s;
         }
+        h2 {
+          margin-top: @h2Margin;
+          font-size: 4.5vh; // 13.5px @ 300px
+          transition: 0.5s;
 
+          @media @minMedia {
+            font-size: 13.5px;
+          }
+        }
         p {
           visibility: hidden;
           opacity: 0;
-          font-size: 2vh;
+          font-size: 2vh; // 6px @ 300px --> still adjust DIV size even though its not displaying
           transition: 0.5s;
-        }
-      }
 
+          @media @minMedia {
+            font-size: 6px;
+          }
+        }
+        div.abrvH2 {
+          display: none;
+        }
+      } // content DIV
       &:hover {
-        div {
+        @textTooSmall: ~"(max-height:400px)";
+        div.toothContent {
           top: calc((@h2Height / 2) - (@size / 2.8));
+
+          @media @textTooSmall {
+            top: calc((@h2Height / 2) + (@h2Margin * 1.5));
+          }
 
           p {
             visibility: visible;
             opacity: 100;
+            color: black;
+
+            @media @textTooSmall {
+              visibility: hidden;
+              opacity: 0;
+            }
           }
 
           i {
             visibility: hidden;
             opacity: 0;
+
+            @media @textTooSmall {
+              visibility: visible;
+              opacity: 100;
+            }
           }
         }
-      }
-    }
+      } // hover
+    } // button.closed
     // General styles for each "tooth", real and fake
     .tooth {
       min-height: @size;
@@ -93,7 +122,7 @@
         min-height: 60px;
       }
     } // tooth
-    .tooth.real {
+    .tooth.onZip {
       background-color: @toothBG;
     }
 

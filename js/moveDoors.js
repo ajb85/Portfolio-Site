@@ -60,7 +60,15 @@ function animateSides(e, home) {
     }
     // Once the animate class is toggled on, doors open
     // Toggled off, doors closed
+    const leftTeeth = leftDiv.querySelectorAll(".tooth");
+    const rightTeeth = rightDiv.querySelectorAll(".tooth");
     leftDiv.classList.toggle("animate");
+    leftTeeth.forEach((tooth, i) => {
+      tooth.classList.toggle("closed");
+      tooth.classList.toggle("open");
+      rightTeeth[i].classList.toggle("closed");
+      rightTeeth[i].classList.toggle("open");
+    });
     rightDiv.classList.toggle("animate");
   }
 }

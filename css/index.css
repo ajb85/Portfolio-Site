@@ -207,55 +207,100 @@ button:focus {
     width: calc(50% - 30px);
   }
 }
-.zipper .left button.tooth,
-.zipper .right button.tooth {
+.zipper .left button.closed,
+.zipper .right button.closed {
   cursor: pointer;
   margin: 0;
 }
-.zipper .left button.tooth div,
-.zipper .right button.tooth div {
+.zipper .left button.closed div.toothContent,
+.zipper .right button.closed div.toothContent {
   width: 90%;
   position: absolute;
   transition: 0.5s;
   top: calc((calc(100vh / 20) / 2) + (1vh * 1.5));
 }
-.zipper .left button.tooth div i,
-.zipper .right button.tooth div i {
+@media (max-height: 300px) {
+  .zipper .left button.closed div.toothContent,
+  .zipper .right button.closed div.toothContent {
+    top: calc((15px / 2) + (3px * 1.5));
+  }
+}
+.zipper .left button.closed div.toothContent i,
+.zipper .right button.closed div.toothContent i {
   visibility: visible;
   opacity: 100;
   font-size: 6vh;
   transition: 0.5s;
 }
-.zipper .left button.tooth div h2,
-.zipper .right button.tooth div h2 {
+@media (max-height: 300px) {
+  .zipper .left button.closed div.toothContent i,
+  .zipper .right button.closed div.toothContent i {
+    font-size: 18px;
+  }
+}
+.zipper .left button.closed div.toothContent h2,
+.zipper .right button.closed div.toothContent h2 {
   margin-top: 1vh;
   font-size: 4.5vh;
   transition: 0.5s;
 }
-.zipper .left button.tooth div h2.abrvH2,
-.zipper .right button.tooth div h2.abrvH2 {
-  display: none;
+@media (max-height: 300px) {
+  .zipper .left button.closed div.toothContent h2,
+  .zipper .right button.closed div.toothContent h2 {
+    font-size: 13.5px;
+  }
 }
-.zipper .left button.tooth div p,
-.zipper .right button.tooth div p {
+.zipper .left button.closed div.toothContent p,
+.zipper .right button.closed div.toothContent p {
   visibility: hidden;
   opacity: 0;
   font-size: 2vh;
   transition: 0.5s;
 }
-.zipper .left button.tooth:hover div,
-.zipper .right button.tooth:hover div {
+@media (max-height: 300px) {
+  .zipper .left button.closed div.toothContent p,
+  .zipper .right button.closed div.toothContent p {
+    font-size: 6px;
+  }
+}
+.zipper .left button.closed div.toothContent div.abrvH2,
+.zipper .right button.closed div.toothContent div.abrvH2 {
+  display: none;
+}
+.zipper .left button.closed:hover div.toothContent,
+.zipper .right button.closed:hover div.toothContent {
   top: calc((calc(100vh / 20) / 2) - (20vh / 2.8));
 }
-.zipper .left button.tooth:hover div p,
-.zipper .right button.tooth:hover div p {
+@media (max-height:400px) {
+  .zipper .left button.closed:hover div.toothContent,
+  .zipper .right button.closed:hover div.toothContent {
+    top: calc((calc(100vh / 20) / 2) + (1vh * 1.5));
+  }
+}
+.zipper .left button.closed:hover div.toothContent p,
+.zipper .right button.closed:hover div.toothContent p {
   visibility: visible;
   opacity: 100;
+  color: black;
 }
-.zipper .left button.tooth:hover div i,
-.zipper .right button.tooth:hover div i {
+@media (max-height:400px) {
+  .zipper .left button.closed:hover div.toothContent p,
+  .zipper .right button.closed:hover div.toothContent p {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.zipper .left button.closed:hover div.toothContent i,
+.zipper .right button.closed:hover div.toothContent i {
   visibility: hidden;
   opacity: 0;
+}
+@media (max-height:400px) {
+  .zipper .left button.closed:hover div.toothContent i,
+  .zipper .right button.closed:hover div.toothContent i {
+    visibility: visible;
+    opacity: 100;
+  }
 }
 .zipper .left .tooth,
 .zipper .right .tooth {
@@ -275,8 +320,8 @@ button:focus {
     min-height: 60px;
   }
 }
-.zipper .left .tooth.real,
-.zipper .right .tooth.real {
+.zipper .left .tooth.onZip,
+.zipper .right .tooth.onZip {
   background-color: #fcfcfa;
 }
 .zipper .left h2,
@@ -304,37 +349,60 @@ button:focus {
   right: 0px;
 }
 .zipper .left.animate {
-  right: 50%;
+  right: calc(50% + (20vh / 3.2));
 }
-.zipper .left.animate .tooth {
-  align-items: flex-end;
+@media (max-height: 300px) {
+  .zipper .left.animate {
+    right: calc(50% + 18.75px);
+  }
 }
-.zipper .left.animate .tooth .toothText {
-  align-items: flex-end;
+.zipper .left.animate button.open div.toothContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.zipper .left.animate .tooth .toothText h2 {
+.zipper .left.animate button.open div.toothContent h2,
+.zipper .left.animate button.open div.toothContent p {
+  display: none;
+  font-size: 3.5vh;
+}
+@media (max-height: 300px) {
+  .zipper .left.animate button.open div.toothContent h2,
+  .zipper .left.animate button.open div.toothContent p {
+    font-size: 10.5px;
+  }
+}
+.zipper .left.animate button.open div.toothContent i {
+  font-size: 3vh;
+  transform: translate(8vh);
+}
+@media (max-height: 300px) {
+  .zipper .left.animate button.open div.toothContent i {
+    transform: translate(24px);
+    font-size: 9px;
+  }
+}
+.zipper .left.animate button.open:hover div.toothContent i {
   display: none;
 }
-.zipper .left.animate .tooth .toothText h2.abrvH2 {
+.zipper .left.animate button.open:hover div.toothContent h2 {
   display: block;
+  transform: rotate(-90deg) translate(0px, 8.2vh);
 }
-.zipper .left.animate .tooth:hover .toothText {
-  top: calc(20vh / 2);
+@media (max-height: 300px) {
+  .zipper .left.animate button.open:hover div.toothContent h2 {
+    transform: rotate(-90deg) translate(0px, 24.6px);
+  }
 }
-.zipper .left.animate .tooth:hover .toothText p {
-  display: none;
-}
-.zipper .left.animate .tooth:hover i {
-  bottom: -4vh;
-}
-.zipper .left .tooth.real {
+.zipper .left .tooth.onZip {
   left: 20vh;
   border-width: 1px 1px 1px 0;
   border-style: solid;
   border-color: black;
 }
 @media (max-height: 300px) {
-  .zipper .left .tooth.real {
+  .zipper .left .tooth.onZip {
     left: 60px;
   }
 }
@@ -351,31 +419,60 @@ button:focus {
   left: 0;
 }
 .zipper .right.animate {
-  left: 50%;
+  left: calc(50% + (20vh / 3.2));
 }
-.zipper .right.animate .tooth {
-  align-items: flex-start;
+@media (max-height: 300px) {
+  .zipper .right.animate {
+    left: calc(50% + 18.75px);
+  }
 }
-.zipper .right.animate .tooth .toothText {
-  align-items: flex-start;
+.zipper .right.animate button.open div.toothContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.zipper .right.animate .tooth:hover .toothText {
-  top: calc(20vh / 2);
+.zipper .right.animate button.open div.toothContent h2,
+.zipper .right.animate button.open div.toothContent p {
+  display: none;
+  font-size: 3.5vh;
 }
-.zipper .right.animate .tooth:hover .toothText p {
+@media (max-height: 300px) {
+  .zipper .right.animate button.open div.toothContent h2,
+  .zipper .right.animate button.open div.toothContent p {
+    font-size: 10.5px;
+  }
+}
+.zipper .right.animate button.open div.toothContent i {
+  font-size: 3vh;
+  transform: translate(-8vh);
+}
+@media (max-height: 300px) {
+  .zipper .right.animate button.open div.toothContent i {
+    transform: translate(24px);
+    font-size: 9px;
+  }
+}
+.zipper .right.animate button.open:hover div.toothContent i {
   display: none;
 }
-.zipper .right.animate .tooth:hover i {
-  bottom: calc(-20vh / 5);
+.zipper .right.animate button.open:hover div.toothContent h2 {
+  display: block;
+  transform: rotate(90deg) translate(0px, 8.2vh);
 }
-.zipper .right .tooth.real {
+@media (max-height: 300px) {
+  .zipper .right.animate button.open:hover div.toothContent h2 {
+    transform: rotate(90deg) translate(0px, 24.6px);
+  }
+}
+.zipper .right .tooth.onZip {
   right: 20vh;
   border-width: 1px 0px 1px 1px;
   border-style: solid;
   border-color: black;
 }
 @media (max-height: 300px) {
-  .zipper .right .tooth.real {
+  .zipper .right .tooth.onZip {
     right: 60px;
   }
 }
