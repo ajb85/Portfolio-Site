@@ -1,22 +1,31 @@
 .aboutContainer {
+  overflow-y: scroll;
   padding: 10px;
-  section.aboutContent {
-    border-width: 5px 0;
+  section {
+    width: 100%;
     .flexAlign(space-around);
+
+    &:first-of-type {
+      border-width: 5px 0;
+    }
 
     img {
       border-radius: 10px;
       max-width: 150px;
     }
-  }
-  section.aboutContent2 {
+
     p {
-      margin: auto;
+      text-align: left;
       padding: 30px;
-      max-width: 600px;
+      width: 90%;
       border: 1px solid #000;
       border-radius: 10px;
       box-shadow: 7px 7px rgba(50, 50, 50, 0.7);
+    }
+
+    p.withImage {
+      width: 60%;
+      min-width: 430px;
     }
   }
 }

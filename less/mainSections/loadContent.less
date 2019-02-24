@@ -3,11 +3,49 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: calc(@size / 2);
-    margin: auto;
+    top: 7px;
     z-index: 0;
     max-width: @maxW;
     text-align: center;
+
+    .arrowContainer {
+      position: absolute;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      top: 0;
+      bottom: 0;
+      .flexAlign;
+
+      &.acLeft {
+        left: 5%;
+      }
+      &.acRight {
+        right: 5%;
+      }
+
+      .arrow {
+        border: solid #fff;
+        border-width: 0 8px 8px 0;
+        display: inline-block;
+        padding: 7px;
+        position: relative;
+
+        &.leftArrow {
+          transform: rotate(135deg);
+          -webkit-transform: rotate(135deg);
+          left: 4px;
+        }
+        &.rightArrow {
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+          right: 4px;
+        }
+      }
+    }
   }
 
   .loadContent {
@@ -16,23 +54,20 @@
     right: 0;
     margin: auto;
     z-index: 0;
-    max-width: 90%; //calc(100% - 240px);
+    max-width: 90%;
     background-color: @white;
     border-radius: 10px;
-    max-width: 750px;
     width: 75%;
-    padding: 10px 0 10px 10px;
+    padding: 10px;
     height: calc(100vh - (@size / 2));
-    overflow-y: scroll;
 
     section {
-      padding: 40px 0; //30px;
+      padding: 40px 0;
       width: 100%;
       border-style: dotted;
       border-color: #000;
       border-width: 0 0 5px 0;
     }
-
     p.bubble {
       padding: 30px;
       max-width: 400px;

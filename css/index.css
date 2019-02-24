@@ -2,7 +2,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
-  src: local('Quicksand Regular'), local('Quicksand-Regular'), url(https://fonts.gstatic.com/s/quicksand/v8/6xKtdSZaM9iE8KbpRA_hK1QI.ttf) format('truetype');
+  src: local('Quicksand Regular'), local('Quicksand-Regular'), url(https://fonts.gstatic.com/s/quicksand/v9/6xKtdSZaM9iE8KbpRA_hK1QI.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Staatliches';
@@ -183,6 +183,7 @@ button:focus {
   margin: auto;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  background-image: url("../img/test_background.jpg");
 }
 .zipper {
   display: flex;
@@ -538,11 +539,47 @@ div.homeContainer button.homeBtn.animate {
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(20vh / 2);
-  margin: auto;
+  top: 7px;
   z-index: 0;
   max-width: 2000px;
   text-align: center;
+}
+.zipper .contentContainer .arrowContainer {
+  position: absolute;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zipper .contentContainer .arrowContainer.acLeft {
+  left: 5%;
+}
+.zipper .contentContainer .arrowContainer.acRight {
+  right: 5%;
+}
+.zipper .contentContainer .arrowContainer .arrow {
+  border: solid #fff;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 7px;
+  position: relative;
+}
+.zipper .contentContainer .arrowContainer .arrow.leftArrow {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  left: 4px;
+}
+.zipper .contentContainer .arrowContainer .arrow.rightArrow {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  right: 4px;
 }
 .zipper .loadContent {
   position: relative;
@@ -553,11 +590,9 @@ div.homeContainer button.homeBtn.animate {
   max-width: 90%;
   background-color: #fcfcfa;
   border-radius: 10px;
-  max-width: 750px;
   width: 75%;
-  padding: 10px 0 10px 10px;
+  padding: 10px;
   height: calc(100vh - (20vh / 2));
-  overflow-y: scroll;
 }
 .zipper .loadContent section {
   padding: 40px 0;
@@ -578,25 +613,33 @@ div.homeContainer button.homeBtn.animate {
   margin-bottom: 20px;
 }
 .aboutContainer {
+  overflow-y: scroll;
   padding: 10px;
 }
-.aboutContainer section.aboutContent {
-  border-width: 5px 0;
+.aboutContainer section {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.aboutContainer section.aboutContent img {
+.aboutContainer section:first-of-type {
+  border-width: 5px 0;
+}
+.aboutContainer section img {
   border-radius: 10px;
   max-width: 150px;
 }
-.aboutContainer section.aboutContent2 p {
-  margin: auto;
+.aboutContainer section p {
+  text-align: left;
   padding: 30px;
-  max-width: 600px;
+  width: 90%;
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: 7px 7px rgba(50, 50, 50, 0.7);
+}
+.aboutContainer section p.withImage {
+  width: 60%;
+  min-width: 430px;
 }
 .skillsContainer {
   overflow-y: scroll;
@@ -669,6 +712,7 @@ div.homeContainer button.homeBtn.animate {
 }
 .projectsContainer section.project div.projectInfo div.techUsed h3 {
   font-size: 3rem;
+  text-decoration: underline;
 }
 @media (max-width:700px) {
   .projectsContainer section.project div.projectInfo div.techUsed h3 {
@@ -679,12 +723,12 @@ div.homeContainer button.homeBtn.animate {
   display: block;
   margin: 5px 0;
   font-size: 3rem;
+  margin-top: 10px;
 }
 @media (max-width:700px) {
   .projectsContainer section.project div.projectInfo div.techUsed span {
     width: 50%;
     font-size: 2.5rem;
-    margin-top: 10px;
   }
 }
 @media (max-width: 470px) {
